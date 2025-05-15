@@ -1,5 +1,5 @@
 <template>
-    <q-card class="q-pa-lg meuCard">
+    <q-card class="q-pa-lg meuCard" v-for="time in times" v-bind:key="time">
         <q-card-title>
             <span class="text-h4" v-if="time !=null">
                 {{ time.nome }}
@@ -29,17 +29,21 @@ export default {
     name: 'CardTime',
     data(){
         return {
-            time: null,
+            times: null,
         }
     },
     mounted(){
         setTimeout(()=> {
-            this.time = {
+            this.times = [{
                 nome: 'Furia',
                 jogadores: ['Fallen', 'yuurih', 'YEKINDAR', 'KSCERATO', 'molodoy'],
-            }
+            },
+            {
+                nome: 'MIBR',
+                jogadores: ['a', 'b', 'c', 'd', 'e'],
+            }]
         }, 3000)
-    }
+    },
 }
 </script>
 
@@ -47,12 +51,13 @@ export default {
  .meuCard {
     min-width: 400px;
     background-color: rgb(50, 50, 50);
+    margin: 16px;
  }
  .Furia {
     background-color: rgb(50, 50, 50);
  }
  .text-h4, .text-h6{
-    color: rgb(0, 4, 115);
+    color: rgb(255, 255, 255);
  }
 
 </style>
